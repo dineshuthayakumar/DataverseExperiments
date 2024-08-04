@@ -1,11 +1,12 @@
 using Microsoft.Xrm.Sdk;
 using System;
-using DataverseExperiments.Helper; // Why am I getting this error?
+using DataverseExperiments.Helper;
 
 namespace DataverseExperiments
 {
     /// <summary>
     /// A plugin that restricts the update of description field on the contact table.
+    /// This plugin is registered on the Pre-Operation stage of the Create and Update event pipeline for the contact table.
     /// </summary>
     public class RestrictFieldUpdate : PluginBase
     {
@@ -14,7 +15,7 @@ namespace DataverseExperiments
         {
         }
 
-        // Entry point for custom business logic execution
+        // Entry point for the plugin. The logic to remove the description field is implemented here.
         protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
             if (localPluginContext == null)
@@ -24,16 +25,15 @@ namespace DataverseExperiments
 
             var context = localPluginContext.PluginExecutionContext;
 
-            if (context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity)
+            if (context.InputParameters.Contains(Constants.TARGET) && context.InputParameters[Constants.TARGET] is Entity)
             {
-               var entity = (Entity)context.InputParameters["Target"];
+               var entity = (Entity)context.InputParameters[Constants.TARGET];
 
-               if (entity.LogicalName.Equals("contact", StringComparison.OrdinalIgnoreCase) && entity.Attributes.Contains("description"))
+               if (entity.LogicalName.Equals(Constants.CONTACT, StringComparison.OrdinalIgnoreCase) && entity.Attributes.Contains(Constants.DESCRIPTION))
                {
-                    DataverseHelper.RemoveFieldValue(entity, "description");
-                    
-                    localPluginContext.Logger.LogInformation("Test Log Information");
                     localPluginContext.Trace($"Message Name: {context.MessageName}");
+                    DataverseHelper.RemoveFieldValue(entity, Constants.DESCRIPTION);
+                    localPluginContext.Logger.LogInformation("Exiting RestrictFieldUpdate plugin.");
                }
             }
         }
