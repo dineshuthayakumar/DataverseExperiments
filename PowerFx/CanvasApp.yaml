@@ -1,0 +1,22 @@
+#Regarding Object Polymorhpic Lookup in Activity Table
+If(
+    IsBlank(ThisItem.Regarding),
+    "",
+    IsType(
+        ThisItem.Regarding,
+        Contacts
+    ),
+    "Contacts: " & AsType(
+        ThisItem.Regarding,
+        Contacts
+    ).'Full Name',
+    IsType(
+        ThisItem.Regarding,
+        Accounts
+    ),
+    "Accounts: " & AsType(
+        ThisItem.Regarding,
+        Accounts
+    ).'Account Name',
+    ""
+)
