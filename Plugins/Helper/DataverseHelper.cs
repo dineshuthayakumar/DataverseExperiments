@@ -5,7 +5,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
 
-namespace DataverseExperiments.Helper
+namespace DataverseExperiments.Plugins.Helper
 {
     public static class DataverseHelper
     {

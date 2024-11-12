@@ -2,7 +2,7 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataverseExperiments", "DataverseExperiments.csproj", "{D55A1963-2FCD-48C1-A45F-5241E2D05C8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataverseExperiments.Plugins", "Plugins\DataverseExperiments.Plugins.csproj", "{D55A1963-2FCD-48C1-A45F-5241E2D05C8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

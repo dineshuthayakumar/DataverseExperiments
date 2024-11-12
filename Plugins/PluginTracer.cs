@@ -1,8 +1,8 @@
 using Microsoft.Xrm.Sdk;
 using System;
-using DataverseExperiments.Helper;
+using DataverseExperiments.Plugins.Helper;
 
-namespace DataverseExperiments
+namespace DataverseExperiments.Plugins
 {
     /// <summary>
     /// A plugin that restricts the update of description field on the contact table.

@@ -3,6 +3,8 @@
 # msbuild output directories
 /bin
 /obj
+/Plugins/bin
+/Plugins/obj
 
 # vs intermediate directory
 /.vs
