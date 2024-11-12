@@ -5,6 +5,8 @@
 /obj
 /Plugins/bin
 /Plugins/obj
+/Console/bin
+/Console/obj
 
 # vs intermediate directory
 /.vs
